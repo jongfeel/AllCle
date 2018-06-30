@@ -15,6 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+
+
 namespace test
 {
     /// <summary>
@@ -22,10 +25,10 @@ namespace test
     /// </summary>
     public partial class MainScreen : Window
     {
+        bool on = true;
         public MainScreen()
         {
             InitializeComponent();
-            binddatagrid();
         }
         private void binddatagrid()
         {
@@ -34,14 +37,13 @@ namespace test
             con.ConnectionString = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
             con.Open();
             SqlCommand cmd = new SqlCommand();
-            MainWindow mw = new MainWindow();
 
-            cmd.CommandText = "select * from [HongikTable$] where 과목명=N'" + Search_Box.Text + "'";
+            cmd.CommandText = "select * from [HongikTable$] where 과목명 like N'%" + Search_Box.Text + "%'";
             cmd.Connection = con;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("HongikTalbe$");
             da.Fill(dt);
-            g1.ItemsSource = dt.DefaultView;
+            Data_Table.ItemsSource = dt.DefaultView;
         }
 
         private void Search_btn_Click(object sender, RoutedEventArgs e)
@@ -49,5 +51,23 @@ namespace test
             binddatagrid();
         }
 
+        private void Search_Box_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            binddatagrid();
+        }
+
+        private void OnOff_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if(on)
+            {
+                OnOff_btn.Content = "ON";
+                on = false;
+            }
+            else
+            {
+                OnOff_btn.Content = "OFF";
+                on = true;
+            }
+        }
     }
 }

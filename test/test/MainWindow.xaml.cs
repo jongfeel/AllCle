@@ -36,8 +36,8 @@ namespace test
             MainScreen MS = new MainScreen();
             MS.Show();
             
-            
         }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
