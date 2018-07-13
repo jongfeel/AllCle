@@ -1,0 +1,11 @@
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\bin\Debug\netcoreapp2.0\AllCleAPI.deps.json
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\bin\Debug\netcoreapp2.0\AllCleAPI.runtimeconfig.json
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\bin\Debug\netcoreapp2.0\AllCleAPI.runtimeconfig.dev.json
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\bin\Debug\netcoreapp2.0\AllCleAPI.dll
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\bin\Debug\netcoreapp2.0\AllCleAPI.pdb
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\obj\Debug\netcoreapp2.0\AllCleAPI.csprojAssemblyReference.cache
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\obj\Debug\netcoreapp2.0\AllCleAPI.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\obj\Debug\netcoreapp2.0\AllCleAPI.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\obj\Debug\netcoreapp2.0\AllCleAPI.AssemblyInfo.cs
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\obj\Debug\netcoreapp2.0\AllCleAPI.dll
+C:\Users\user\source\repos\AllCleAPI\AllCleAPI\obj\Debug\netcoreapp2.0\AllCleAPI.pdb
