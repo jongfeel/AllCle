@@ -12662,23 +12662,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Users\\kjp10\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\AllCleAPI\\AllCleAPI\\AllCleAPI.csproj",
+      "projectUniqueName": "C:\\Users\\kjp10\\OneDrive\\문서\\GitHub\\AllCle\\AllCleAPI\\AllCleAPI\\AllCleAPI.csproj",
       "projectName": "AllCleAPI",
-      "projectPath": "C:\\Users\\user\\source\\repos\\AllCleAPI\\AllCleAPI\\AllCleAPI.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\AllCleAPI\\AllCleAPI\\obj\\",
+      "projectPath": "C:\\Users\\kjp10\\OneDrive\\문서\\GitHub\\AllCle\\AllCleAPI\\AllCleAPI\\AllCleAPI.csproj",
+      "packagesPath": "C:\\Users\\kjp10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kjp10\\OneDrive\\문서\\GitHub\\AllCle\\AllCleAPI\\AllCleAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kjp10\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
