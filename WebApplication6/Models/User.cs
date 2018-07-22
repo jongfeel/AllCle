@@ -7,7 +7,8 @@ namespace ApiTest.Models
 {
     public class User
     {
-        public int Id { get; set; }
+        public int No { get; set; }
+        public string Id { get; set; }
         public string Pw { get; set; }
     }
 }

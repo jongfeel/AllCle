@@ -27,11 +27,11 @@ namespace ApiTest.Controllers
             return _repo.GetUsers();
         }
 
-
-        [HttpGet("{id:int}")]
-        public IEnumerable<User> Get(int id)
+       
+        [HttpGet("{Id}")]
+        public IEnumerable<User> Get(string Id)
         {
-            return _repo.GetUsers(id);
+            return _repo.GetUsers(Id);
         }
 
         [HttpPost]

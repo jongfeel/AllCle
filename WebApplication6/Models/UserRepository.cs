@@ -34,13 +34,13 @@ namespace ApiTest.Models
         // 출력
         public List<User> GetUsers()
         {
-            string sql = "Select * From Users Order By Id Asc";
+            string sql = "Select * From Users Order By No Asc";
             return this.db.Query<User>(sql).ToList();
         }
-
-        public List<User> GetUsers(int _id)
+   
+        public List<User> GetUsers(string _Id)
         {
-            string sql = "Select * From Users Where Id = "+_id;
+            string sql = "Select * From Users Where Id like '"+_Id+"'";
             return this.db.Query<User>(sql).ToList();
         }
     }

@@ -10,6 +10,6 @@ namespace ApiTest.Models
     {
         void AddUser(User model); // 입력
         List<User> GetUsers(); // 출력
-        List<User> GetUsers(int _id);
+        List<User> GetUsers(string _Id);
     }
 }
