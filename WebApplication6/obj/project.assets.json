@@ -13304,11 +13304,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\WebApplication6\\WebApplication6\\ApiTest.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\AllCle2\\WebApplication6\\ApiTest.csproj",
       "projectName": "ApiTest",
-      "projectPath": "C:\\Users\\user\\source\\repos\\WebApplication6\\WebApplication6\\ApiTest.csproj",
+      "projectPath": "C:\\Users\\user\\Source\\Repos\\AllCle2\\WebApplication6\\ApiTest.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\WebApplication6\\WebApplication6\\obj\\",
+      "outputPath": "C:\\Users\\user\\Source\\Repos\\AllCle2\\WebApplication6\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
