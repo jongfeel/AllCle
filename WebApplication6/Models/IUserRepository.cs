@@ -8,7 +8,7 @@ namespace ApiTest.Models
 {
     public interface IUserRepository
     {
-        void AddUser(User model); // 입력
+        string AddUser(User model); // 입력
         List<User> GetUsers(); // 출력
         List<User> GetUsers(string _Id);
     }

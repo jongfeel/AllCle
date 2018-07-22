@@ -33,7 +33,7 @@ namespace ApiTest.Controllers
         {
             return _repo.GetUsers(Id);
         }
-
+         
         [HttpPost]
         public User PostUser([FromBody] User User)
         {

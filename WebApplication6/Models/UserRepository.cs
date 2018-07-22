@@ -25,10 +25,11 @@ namespace ApiTest.Models
         }
 
         // 입력
-        public void AddUser(User model)
+        public string AddUser(User model)
         {
-            string sql = "Insert Into Users (Pw) Values (@Pw)";
+            string sql = "Insert Into Users (Id, Pw) Values (@Id, @Pw)";
             var id = this.db.Execute(sql, model);
+            return "successfully add";
         }
 
         // 출력
