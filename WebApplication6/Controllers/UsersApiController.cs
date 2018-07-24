@@ -22,9 +22,9 @@ namespace ApiTest.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<User> Get()
+        public JsonResult Get()
         {
-            return _repo.GetUsers();
+            return Json(_repo.GetUsers());
         }
 
        
