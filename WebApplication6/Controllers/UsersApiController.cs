@@ -22,7 +22,7 @@ namespace ApiTest.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<User> GetUser()
+        public IEnumerable<User> Get()
         {
             return _repo.GetUsers();
         }
