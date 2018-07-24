@@ -22,18 +22,18 @@ namespace ApiTest.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<User> GetUser()
+        public JsonResult Get()
         {
-            return _repo.GetUsers();
+            return Json(_repo.GetUsers());
         }
 
-
-        [HttpGet("{id:int}")]
-        public IEnumerable<User> Get(int id)
+       
+        [HttpGet("{Id}")]
+        public IEnumerable<User> Get(string Id)
         {
-            return _repo.GetUsers(id);
+            return _repo.GetUsers(Id);
         }
-
+         
         [HttpPost]
         public User PostUser([FromBody] User User)
         {

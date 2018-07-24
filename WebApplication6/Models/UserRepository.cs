@@ -25,22 +25,23 @@ namespace ApiTest.Models
         }
 
         // 입력
-        public void AddUser(User model)
+        public string AddUser(User model)
         {
-            string sql = "Insert Into Users (Pw) Values (@Pw)";
+            string sql = "Insert Into Users (Id, Pw) Values (@Id, @Pw)";
             var id = this.db.Execute(sql, model);
+            return "successfully add";
         }
 
         // 출력
         public List<User> GetUsers()
         {
-            string sql = "Select * From Users Order By Id Asc";
+            string sql = "Select * From Users Order By No Asc";
             return this.db.Query<User>(sql).ToList();
         }
-
-        public List<User> GetUsers(int _id)
+   
+        public List<User> GetUsers(string _Id)
         {
-            string sql = "Select * From Users Where Id = "+_id;
+            string sql = "Select * From Users Where Id like '"+_Id+"'";
             return this.db.Query<User>(sql).ToList();
         }
     }
