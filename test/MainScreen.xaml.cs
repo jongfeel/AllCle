@@ -19,9 +19,6 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.ComponentModel;
-using test.Models;
-using Newtonsoft.Json;
 
 namespace test
 {
@@ -78,35 +75,11 @@ namespace test
         private void change()
         {
             string url = @"https://allcleapp.azurewebsites.net/api/UsersApi";
-            //url=url +"/"+ Search_Box.Text;
+            url=url +"/"+ Search_Box.Text;
             var json = new WebClient().DownloadString(url);
-            List<User> UserList = JsonConvert.DeserializeObject< List < User >> (json);
+            System.Windows.MessageBox.Show(json);
             
         }
-
-
-
-        public static DataTable toDataTable<T>(this IList<T> data)
-        {
-            PropertyDescriptorCollection props = TypeDescriptor.GetProperties(typeof(T));
-            DataTable table = new DataTable();
-            for (int i = 0; i < props.Count; i++)
-            {
-                PropertyDescriptor prop = props[i];
-                table.Columns.Add(prop.Name, prop.PropertyType);
-            }
-            object[] values = new object[props.Count];
-            foreach (T item in data)
-            {
-                for (int i = 0; i < values.Length; i++)
-                {
-                    values[i] = props[i].GetValue(item);
-                }
-                table.Rows.Add(values);
-            }
-            return table;
-        }
-
 
         
     }
