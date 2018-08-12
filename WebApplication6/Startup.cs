@@ -31,7 +31,7 @@ namespace ApiTest
             //    리파지터리 클래스에서 사용할 수 있도록 설정
             services.AddSingleton<IConfiguration>(Configuration);
             //[Tech] 기술 목록
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ISubjectRepository, SubjectRepository>();
 
         }
 
