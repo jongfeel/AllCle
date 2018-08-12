@@ -32,10 +32,10 @@ namespace test
     public partial class MainScreen : Window
     {
         static HttpClient client = new HttpClient();
-        bool on = true;
+        bool searchButton = true;
         DataTable _timeTable = new DataTable();
         List<Subject> SubjectList = new List<Subject>();
-        List<Models.Day> DayList = new List<Models.Day>();
+        List<DayOfTheWeek> DayList = new List<DayOfTheWeek>();
         public MainScreen()
         {
             InitializeComponent();
@@ -58,61 +58,61 @@ namespace test
             //_timeTable.Rows.Add("\n\n10\n\n");
             //_timeTable.Rows.Add("\n\n11\n\n");
             //_timeTable.Rows.Add("\n\n12\n\n");
-            Models.Day a = new Models.Day("1",null, null, null, null, null, null);
+            DayOfTheWeek a = new DayOfTheWeek("1",null, null, null, null, null, null);
             DayList.Add(a);
-            Models.Day b = new Models.Day("2", null, null, null,null, null, null);
+            DayOfTheWeek b = new DayOfTheWeek("2", null, null, null,null, null, null);
             DayList.Add(b);
-            Models.Day c = new Models.Day("3", null, null, null, null, null, null);
+            DayOfTheWeek c = new DayOfTheWeek("3", null, null, null, null, null, null);
             DayList.Add(c);
-            Models.Day d = new Models.Day("4", null, null, null, null, null, null);
+            DayOfTheWeek d = new DayOfTheWeek("4", null, null, null, null, null, null);
             DayList.Add(d);
-            Models.Day e = new Models.Day("5", null, null, null, null, null, null);
+            DayOfTheWeek e = new DayOfTheWeek("5", null, null, null, null, null, null);
             DayList.Add(e);
-            Models.Day f = new Models.Day("6", null, null, null, null, null, null);
+            DayOfTheWeek f = new DayOfTheWeek("6", null, null, null, null, null, null);
             DayList.Add(f);
-            Models.Day g = new Models.Day("7", null, null, null, null, null, null);
+            DayOfTheWeek g = new DayOfTheWeek("7", null, null, null, null, null, null);
             DayList.Add(g);
-            Models.Day h = new Models.Day("8", null, null, null, null, null, null);
+            DayOfTheWeek h = new DayOfTheWeek("8", null, null, null, null, null, null);
             DayList.Add(h);
-            Models.Day i = new Models.Day("9", null, null, null, null, null, null);
+            DayOfTheWeek i = new DayOfTheWeek("9", null, null, null, null, null, null);
             DayList.Add(i);
-            Models.Day j = new Models.Day("10", null, null, null, null, null, null);
+            DayOfTheWeek j = new DayOfTheWeek("10", null, null, null, null, null, null);
             DayList.Add(j);
-            Models.Day k = new Models.Day("11", null, null, null, null, null, null);
+            DayOfTheWeek k = new DayOfTheWeek("11", null, null, null, null, null, null);
             DayList.Add(k);
-            Models.Day l = new Models.Day("12", null, null, null, null, null, null);
+            DayOfTheWeek l = new DayOfTheWeek("12", null, null, null, null, null, null);
             DayList.Add(l);
             TimeTable.ItemsSource = DayList;
             
         }
         private void Search_btn_Click(object sender, RoutedEventArgs e)
         { 
-            change();
+            ShowList();
         }
         private void Search_Box_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            change();
+            ShowList();
         }
         private void OnOff_btn_Click(object sender, RoutedEventArgs e)
         {
-            if(on)
-            {
-                OnOff_btn.Content = "ON";
-                on = false;
-            }
-            else
-            {
-                OnOff_btn.Content = "OFF";
-                on = true;
-            }
+            string urlBase = @"https://allcleapp.azurewebsites.net/api/AllCle";
+            string url = null;
+            if (ListToString(DayList) == null)
+                url = urlBase;
+            else url = urlBase + "/" + ListToString(DayList);
+            var json = new WebClient().DownloadData(url);
+            string Unicode = Encoding.UTF8.GetString(json);
+            SubjectList = JsonConvert.DeserializeObject<List<Subject>>(Unicode);
+            DataListView.ItemsSource = SubjectList;
         }
-        private void change()
+        private void ShowList()
         {
-            string url = @"https://allcleapp.azurewebsites.net/api/Subjects";
-            //if (Search_Box.Text!="과목명")
-            //    url = url + "/" + Search_Box.Text;
-            if(DayList.Count!=0)
-                url = url + "/" + ListToString(DayList);
+            string urlBase = @"https://allcleapp.azurewebsites.net/api/AllCle";
+            string url = null;
+            if(ListToString(DayList) == null)
+                url = urlBase + "/subject/" + Search_Box.Text;
+            else
+                url = urlBase + "/" + ListToString(DayList) + "/" + Search_Box.Text;
             var json = new WebClient().DownloadData(url);
             string Unicode = Encoding.UTF8.GetString(json);
             SubjectList = JsonConvert.DeserializeObject<List<Subject>>(Unicode);
@@ -140,7 +140,7 @@ namespace test
             string _day8 = null;
             if (DataListView.SelectedItems.Count == 1)
             {
-                if (SubjectList[index].Time1 != null)
+                if (SubjectList[index].Time1 != "")
                 {
                     _period1 = Int32.Parse(SubjectList[index].Time1.Substring(1, SubjectList[index].Time1.Length - 1));
                     _day1 = SubjectList[index].Time1.Substring(0, 1);
@@ -174,7 +174,7 @@ namespace test
                         ok = false;
                     }
                 }
-                if (SubjectList[index].Time2 != null && ok == true)
+                if (SubjectList[index].Time2 != "" && ok == true)
                 {
                     _period2 = Int32.Parse(SubjectList[index].Time2.Substring(1, SubjectList[index].Time2.Length - 1));
                     _day2 = SubjectList[index].Time2.Substring(0, 1);
@@ -208,7 +208,7 @@ namespace test
                         ok = false;
                     }
                 }
-                if (SubjectList[index].Time3 != null && ok == true)
+                if (SubjectList[index].Time3 != "" && ok == true)
                 {
                     _period3 = Int32.Parse(SubjectList[index].Time3.Substring(1, SubjectList[index].Time3.Length - 1));
                     _day3 = SubjectList[index].Time3.Substring(0, 1);
@@ -242,7 +242,7 @@ namespace test
                         ok = false;
                     }
                 }
-                if (SubjectList[index].Time4 != null && ok == true)
+                if (SubjectList[index].Time4 != "" && ok == true)
                 {
                     _period4 = Int32.Parse(SubjectList[index].Time4.Substring(1, SubjectList[index].Time4.Length - 1));
                     _day4 = SubjectList[index].Time4.Substring(0, 1);
@@ -276,7 +276,7 @@ namespace test
                         ok = false;
                     }
                 }
-                if (SubjectList[index].Time5 != null && ok == true)
+                if (SubjectList[index].Time5 != "" && ok == true)
                 {
                     _period5 = Int32.Parse(SubjectList[index].Time5.Substring(1, SubjectList[index].Time5.Length - 1));
                     _day5 = SubjectList[index].Time5.Substring(0, 1);
@@ -310,7 +310,7 @@ namespace test
                         ok = false;
                     }
                 }
-                if (SubjectList[index].Time6 != null && ok == true)
+                if (SubjectList[index].Time6 != "" && ok == true)
                 {
                     _period6 = Int32.Parse(SubjectList[index].Time6.Substring(1, SubjectList[index].Time6.Length - 1));
                     _day6 = SubjectList[index].Time6.Substring(0, 1);
@@ -344,7 +344,7 @@ namespace test
                         ok = false;
                     }
                 }
-                if (SubjectList[index].Time7 != null && ok == true)
+                if (SubjectList[index].Time7 != "" && ok == true)
                 {
                     _period7 = Int32.Parse(SubjectList[index].Time7.Substring(1, SubjectList[index].Time7.Length - 1));
                     _day7 = SubjectList[index].Time7.Substring(0, 1);
@@ -378,7 +378,7 @@ namespace test
                         ok = false;
                     }
                 }
-                if (SubjectList[index].Time8 != null && ok == true)
+                if (SubjectList[index].Time8 != "" && ok == true)
                 {
                     _period8 = Int32.Parse(SubjectList[index].Time8.Substring(1, SubjectList[index].Time8.Length - 1));
                     _day8 = SubjectList[index].Time8.Substring(0, 1);
@@ -540,7 +540,7 @@ namespace test
             TimeTable.ItemsSource = DayList;
             TimeTable.Items.Refresh();
         }
-        private string ListToString(List<Models.Day> _list)
+        private string ListToString(List<DayOfTheWeek> _list)
         {
             string result = null;
             for (int i = 1; i < _list.Count+1; i++)

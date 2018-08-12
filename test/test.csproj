@@ -66,7 +66,7 @@
     <Compile Include="MainScreen.xaml.cs">
       <DependentUpon>MainScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\DayOfTheWeek.cs" />
     <Compile Include="Models\Subject.cs" />
     <Page Include="MainScreen.xaml">
       <SubType>Designer</SubType>

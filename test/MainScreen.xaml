@@ -16,8 +16,8 @@
         <Button x:Name="save_btn" Content="저장" HorizontalAlignment="Left" Height="19" Margin="802,351,0,0" VerticalAlignment="Top" Width="72"/>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
         <Grid Margin="230,375,-0.2,-0.4"/>
-        <Button x:Name="OnOff_btn" Content="ON" HorizontalAlignment="Left" Height="19" Margin="399,351,0,0" VerticalAlignment="Top" Width="60" Click="OnOff_btn_Click"/>
-        <DataGrid x:Name="TimeTable" ItemsSource="{Binding DayList}" HorizontalAlignment="Left" Height="336" Margin="230,10,0,0" VerticalAlignment="Top" Width="650" HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="Black" RowHeight="80" IsReadOnly="True" AutoGenerateColumns="False">
+        <Button x:Name="OnOff_btn" Content="전체" HorizontalAlignment="Left" Height="19" Margin="399,351,0,0" VerticalAlignment="Top" Width="60" Click="OnOff_btn_Click"/>
+        <DataGrid x:Name="TimeTable" ItemsSource="{Binding DayList}" HorizontalAlignment="Left" Height="336" Margin="230,10,0,0" VerticalAlignment="Top" Width="650" HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="Black" RowHeight="40" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.ContextMenu>
                 <ContextMenu/>
             </DataGrid.ContextMenu>

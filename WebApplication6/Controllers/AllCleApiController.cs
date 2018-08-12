@@ -13,7 +13,7 @@ using System.Runtime.Serialization.Json;
 
 namespace ApiTest.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/AllCle")]
     public class SubjectsController : Controller
     {
         private ISubjectRepository _repo;
@@ -34,6 +34,20 @@ namespace ApiTest.Controllers
         public IEnumerable<Subject> Get(string daylist)
         {
             return _repo.GetSubjects(daylist);
+        }
+
+        [Route("subject/{subjectName}")]
+        [HttpGet]
+        public IEnumerable<Subject> GetOnlySubjects(string subjectName)
+        {
+            return _repo.GetOnlySubjects(subjectName);
+        }
+
+        [Route("{daylist}/{subjectName}")]
+        [HttpGet]
+        public IEnumerable<Subject> Get(string daylist, string subjectName)
+        {
+            return _repo.GetSubjects(daylist, subjectName);
         }
 
         [HttpPost]
