@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace test.Models
 {
-    class Day
+    class DayOfTheWeek
     {
         public string period { get; set; }
         public string mon { get; set; }
@@ -15,7 +15,7 @@ namespace test.Models
         public string thu { get; set; }
         public string fri { get; set; }
         public string sat { get; set; }
-        public Day(string a, string b, string c, string d, string e, string f, string g)
+        public DayOfTheWeek(string a, string b, string c, string d, string e, string f, string g)
         {
             period = a; mon = b; tue = c; wed = d; thu = e; fri = f; sat = g;
         }
