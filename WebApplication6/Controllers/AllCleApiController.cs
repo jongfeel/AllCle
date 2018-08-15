@@ -45,7 +45,6 @@ namespace ApiTest.Controllers
         [Route("subject/{subjectName}")]                // url 뒤에 과목명을 추가한 경우
         [HttpGet]
         public IEnumerable<Subject> GetOnlySubjects(string subjectName) // 과목 명을 검색했을 때, 그 과목 명에 해당하는 모든 과목을 출력하도록 한다.
-                                                                        // "대학수학"을 검색했을 때, "대학수학" 뿐 아니라, "대학수학2", "대학수학에 대한 이해" 등 완성되지 않은 string도 출력하도록 구현할 필요가 있다.
                                                                         // 해당 메소드는 Client UI의 과목 목록에서 "과목 검색"기능에서 사용된다.
         {
             return _repo.GetOnlySubjects(subjectName);                  //과목명만 출력하는 메소드
