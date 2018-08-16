@@ -30,7 +30,7 @@ namespace test
             InitializeComponent();
         }
 
-        private void Login_btn_Click(object sender, RoutedEventArgs e)
+        private void Login_btn_Click(object sender, RoutedEventArgs e)      // login 버튼을 클릭하면, MainWindow.xaml을 close하고, MainScreen.xaml show하는 메소드
         {
             this.Hide();
             MainScreen MS = new MainScreen();
@@ -39,7 +39,7 @@ namespace test
         }
         
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)         // 그 외 버튼은 미구현
         {
 
         }

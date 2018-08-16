@@ -15,7 +15,7 @@ namespace test.Models
         public string thu { get; set; }
         public string fri { get; set; }
         public string sat { get; set; }
-        public DayOfTheWeek(string a, string b, string c, string d, string e, string f, string g)
+        public DayOfTheWeek(string a, string b, string c, string d, string e, string f, string g)       // "|"를 기준으로 분류된 daylist에 해당하는 string 변수
         {
             period = a; mon = b; tue = c; wed = d; thu = e; fri = f; sat = g;
         }
